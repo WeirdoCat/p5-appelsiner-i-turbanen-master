@@ -28,7 +28,7 @@ text("musx: " + mouseX+ "musy: "+mouseY, 100, 100);
     }
  // jeg har valgt at lave spillet lidt anderledes end normalt fordi dette syntes jeg var lidt sjovere
     this.move = function(tast) {
-       /* if (tast == 'w' || tast== 'W') {
+        if (tast == 'w' || tast== 'W') {
             this.y -= this.speed;
             if (this.y < 0) {this.y = 0};
         }
@@ -36,18 +36,13 @@ text("musx: " + mouseX+ "musy: "+mouseY, 100, 100);
         if (tast == 's' || tast == 'S') {
             this.y += this.speed;
             if (this.y > height-this.dyb) {this.y = height - this.dyb};
-        }*/
+        }
         
 
-        if (tast == 'd' || tast == 'D') {
-            this.x += this.speed;
-           
-        }
+this.x = mouseX;
 
-        if (tast == 'a' || tast == 'A') {
-            this.x -= this.speed;
     
-        }
+        
         
     }
 
