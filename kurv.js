@@ -5,8 +5,8 @@
 
 function Kurv(x, y, bredde, dybde, speed) {
     /* Den første del af funktionen er en "konstruktør".
-     * Den tager parametrene og konstruerer et nyt objekt 
-     * ud fra dem. Værdierne huskes som hørende til netop 
+     * Den tager paboldrmetrene og konstruerer et nyt objekt 
+     * ud fboldr dem. Værdierne huskes som hørende til netop 
      * dette objekt ved hjælp af nøgleordet thisa
      */
     
@@ -22,11 +22,13 @@ function Kurv(x, y, bredde, dybde, speed) {
         fill(this.col);
        // rect(this.x+20, this.y+20, 20*2, 20*2);
         image(this.img, this.x, this.y, this.bred, this.dyb)
-        text("", this.x,this.y);
-    }
+text("musx: " + mouseX+ "musy: "+mouseY, 100, 100);
 
+        
+    }
+ // jeg har valgt at lave spillet lidt anderledes end normalt fordi dette syntes jeg var lidt sjovere
     this.move = function(tast) {
-        if (tast == 'w' || tast== 'W') {
+       /* if (tast == 'w' || tast== 'W') {
             this.y -= this.speed;
             if (this.y < 0) {this.y = 0};
         }
@@ -34,8 +36,9 @@ function Kurv(x, y, bredde, dybde, speed) {
         if (tast == 's' || tast == 'S') {
             this.y += this.speed;
             if (this.y > height-this.dyb) {this.y = height - this.dyb};
-        }
-/* jeg har valgt at lave spillet lidt anderledes end normalt fordi dette syntes jeg var lidt sjovere
+        }*/
+        
+
         if (tast == 'd' || tast == 'D') {
             this.x += this.speed;
            
@@ -45,16 +48,27 @@ function Kurv(x, y, bredde, dybde, speed) {
             this.x -= this.speed;
     
         }
-        */
+        
     }
 
-    this.grebet = function(xa, ya, ra) {
-        if ((ya < this.y+ra && ya > this.y-ra) && (xa > this.x+ra && xa > this.x-ra)) {
+    this.grebet = function(boldx, boldy, boldr) {
+var yhøj = this.y+boldr+(this.dyb/2);
+var ylav = this.y-boldr+(this.dyb/2);
+
+var xhøj = this.x+boldr+this.bred/2;
+var xlav = this.x;
+
+
+        text("123456", xhøj,yhøj);
+        text("2", xlav,ylav);
+        if (( boldy < yhøj && boldy > ylav) && (boldx > xhøj && boldx > xlav)) {
+
             return true;
+            
         }
         else {
             return false;
         }
     }
 
-} 
+}

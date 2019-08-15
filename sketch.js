@@ -16,6 +16,7 @@ let img;
 
 // Turbanen
 var turban;
+var plushie; 
 
 // Øvrige
 var tid = 150;
@@ -31,7 +32,8 @@ function setup() {
     createCanvas(750, 600);
     newspeed = yspeed;
     x = rad;
-    turban = new Kurv(550, 100, 70, 50, 25);
+    turban = new Kurv(550, 550, 70, 50, 25);
+    plushie = new plushie(0, 10);
 }
 
 function draw() {
@@ -48,13 +50,14 @@ function draw() {
 function display() {
     fill(255);
     text("Score: " + score, width - 80, 30);
-    text("Mistede bolde: " + (score2 - score), width - 100, 60);
+    text("Mistede plushiee: " + (score2 - score), width - 100, 60);
 
     //Her skal vi sørge for at appelsinen bliver vist, hvis den skal vises
     if (tid > 0) {
         tid -= 1;
     }
     if (tid < 100) {
+        plushie.display();
         fill(col);
         ellipse(x, y, rad * 2, rad * 2);
     }
@@ -102,7 +105,7 @@ function shootNew() {
     x = rad;
     y = 300;
     yspeed = random(-3, 3)
-    xspeed = 6 * random(0.5, 1)*(1+(score/10));
+    xspeed = 6 * random(0.5, 1);
     tid = 100;
     console.log(xspeed);
 }
@@ -121,15 +124,15 @@ OPGAVER
             Skriv det i kommentarer, prøv at se hvad der sker, når
             I laver dem om. 
 
-            Grav er tyngdekraften som bolden er afhængig af.
-            Tid giver et delay til hvornår bolden skal skydes. Lige nu er delayet i starten (150/60)sekunder
+            Grav er tyngdekraften som plushieen er afhængig af.
+            Tid giver et delay til hvornår plushieen skal skydes. Lige nu er delayet i starten (150/60)sekunder
 
 
  Opgave 2 - lav programmet om så det er tilfældigt hvor højt oppe 
             på venstre kan appelsinerne starter. Overvej om man kan 
             sikre, at appelsinen ikke ryger ud af skærmens top men 
             stadig har en "pæn" bane
-Har lavet det om til en hoppebold, eller en pinballmaskine
+Har lavet det om til en hoppeplushie, eller en pinballmaskine
 
 
  Opgave 3 - lav programmet om så man også kan bevæge turbanen mod
