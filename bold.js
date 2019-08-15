@@ -1,4 +1,4 @@
-function plushie(speedNed, speedHen) {
+function plushie(speedNed, speedHen, res, grav) {
     /* Den første del af funktionen er en "konstruktør".
      * Den tager paboldrmetrene og konstruerer et nyt objekt 
      * ud fboldr dem. Værdierne huskes som hørende til netop 
@@ -13,18 +13,20 @@ function plushie(speedNed, speedHen) {
     this.img = loadImage("Billeder/kurv.png");
 
     this.display = function() {
-        this.y = rad+10;
+      if(this.y == 0)  this.y = rad+10;
         fill(this.col);
     ellipse(this.x,this.y, rad);
         //image(this.img, this.x, this.y, this.bred, this.dyb)
     }
     this.fall = function(){
 
-
-
         this.x += speedHen;
 
         this.y += speedNed;
+
+        speedHen *= 1-res;
+
+        speedNed *= grav;
     }
 
 

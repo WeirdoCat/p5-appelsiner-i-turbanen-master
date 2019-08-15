@@ -33,7 +33,7 @@ function setup() {
     newspeed = yspeed;
     x = rad;
     turban = new Kurv(550, 550, 70, 50, 25);
-    plushie = new plushie(0, 10);
+    plushie = new plushie(10, 1, 0.01, 1.05);
 }
 
 function draw() {
@@ -50,7 +50,7 @@ function draw() {
 function display() {
     fill(255);
     text("Score: " + score, width - 80, 30);
-    text("Mistede plushiee: " + (score2 - score), width - 100, 60);
+    text("Mistede plushies: " + (score2 - score), width - 100, 60);
 
     //Her skal vi sørge for at appelsinen bliver vist, hvis den skal vises
     if (tid > 0) {
@@ -60,6 +60,7 @@ function display() {
         plushie.display();
         fill(col);
         ellipse(x, y, rad * 2, rad * 2);
+        plushie.fall();
     }
 
     // Her vises turbanen - foreløbig blot en firkant
